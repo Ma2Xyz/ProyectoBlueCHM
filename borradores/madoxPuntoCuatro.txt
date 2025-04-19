@@ -1,0 +1,14 @@
+     Pros        |      Contras
+Despreocupacion  | Menos customizable
+Servicio Tecnico |   Menos privado
+ Disponibilidad  |     Confianza
+   Seguridad     |    Suscripcion
+
+La nube puede ser conveniente para una nueva empresa ya que el rentar el ordenador de otra persona o empresa te permite despreocuparte y externalizar costes, no tienes que incurriren el desembolso que puede suponer la compra propia de un servidor, o el correcto acondicionamiento y securizacion fisica del servidor, sin embargo todo esto viene con el coste de perder control sobre tu propia infraestructura y tener que confiar en la seguridad y servicios de alguien externo, ademas de aumentar un gasto mensual sin fondo, ya que mientras 
+siga corriendo el servidor habra que seguir pagando, viendo que la empresa ya ha realizado la inversion en un servidor para la web y un NAS que han podido cumplir su funcion sin
+problemas de rendimiento hasta ahora, esta claro que el fallo es de seguridad y que todo lo que te pueda aportar la nube ademas de la seguridad no es estrictamente necesario y 
+habria que plantearse si realmente son convenientes, por otro lado las desventajas de la nube seguirian afectando a la empresa por lo que para saber si es una buena idea apoyarnos en la nube habria que responder algunas preguntas:
+
+¿Es sostenible a largo plazo el cloud? ¿Y una infraestructura local?
+¿Es posible en nuestro caso particular crear una infraestructura local razonablemente segura?
+¿Nos serian utiles/convenientes los servicios ofrecidos por el cloud? ¿Podriamos replicarlos en nuestra infraestructura local? Y si fuera posible hacerlo ¿Plantearia alguna ventaja frente a hacerlo en la nube?
