@@ -7,10 +7,6 @@ pause() { echo "Presiona cualquier tecla para continuar..."; read -n 1 -s; }
 
 rm logHashes.db
 
-rm -rf textosPOC
-
-mkdir textosPOC
-
 clear
 
 echo -e "sqlite3 logHashes.db CREATE TABLE logHashes (id INTEGER PRIMARY KEY AUTOINCREMENT, nombreArchivo TEXT NOT NULL, fecha TEXT NOT NULL, hash TEXT NOT NULL);\necho logOriginal > ejemplo.log"
