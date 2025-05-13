@@ -1,0 +1,27 @@
+Para proteger la web hemos adoptado varias medidas, primeramente en el primer analisis se reconocieron varios servicios vulnerables en el servidor, por lo que hemos formateado y reinstalado el sistema entero con la plantilla anteriormente hardenizada, incluyendo los servicios que hemos considerado seguros o necesarios, estos ultimos, adicionalmente han tenido que ser configurados para que no representaran un riesgo y cumplieran su funcion. Tras este filtro basico con el que hemos securizado todo el servidor web, dejandonos con un sistema seguro por defecto ahora con la ayuda del OWASP Top Ten 2021, un estudio donde se recopilan y enumeran las diez vulnerabilidades mas comunes en aplicaciones web, hemos extraido las principales vulnerabilidades no provocadas por fallos de la programacion, estas son:
+1.Perdida de control de acceso 
+2.Configuracion de seguridad incorrecta
+3. Componentes vulnerables y desactualizados
+4. Fallas en el registro y la monitorizacion
+
+Una vez identificadas las amenazas esto es lo que hemos hecho paso por paso para arreglarlas:
+
+Para asegurar el primer punto hemos configurado una regla de denegacion por defecto en cada recurso, siguiendo la filosofia del minimo permiso hemos revisado que cada posible usuario del servicio web (los cuales han sido reducidos al minimo) tuviera acceso unicamente a los recursos que necesite y con la minima cantidad de permisos posible, tambien se ha desactivado el listado de archivos en la web y se ha aplicado un sistema con el que se generan avisos cuando un usuario intenta acceder de manera repetida a un recurso sobre el que no tiene permisos.
+
+El segundo punto ya ha sido cubierto al principio, se ha reinstalado el sistema y se ha utilizado la menor cantidad de elementos posibles, esto para crear un entorno minimalista, reduciendo asi la superficie de ataque, despues se han aplicado configuraciones basicas de cada pieza de software en particular y se han revisado con ayuda de scripts. Estos son algunos ejemplos de configuraciones en los servicios:
+	SSH
+		-Se ha ambiado el puerto por defecto a un puerto aleatorio y mas seguro
+		-Acceso con root desactivado
+		-Acceso por contraseña desactivado, se ha sustituido por el uso de parejas de claves publica/privada
+		-TCP Forwarding desactivado
+		-Se aplico politica fail2ban
+	Apache
+		-Se oculto informacion que podria ser usada por un atacante
+		-Se desactivaron modulos innecesarios
+		-Se aplico una limitacion a los metodos HTTP permitidos
+		-Implementacion de HTTPS y HSTS
+		-Configuracion de CSP
+
+El tercer punto tambien ha sido comprobado al principio, se han actualizado y revisado todos los componentes de software y sus dependencias
+
+Por ultimos en tema de logs se han configurado para que cada intento de inicio de sesion, control de acceso, fallos en las validaciones del servidor... sean registrados junto con informacion sobre el contexto del evento, ademas se han encodeado los logs para prevenir su manipulacion a traves de inyecciones y hemos creado un script para que constantemente monitoriza los logs en busca de indicios de manipulacion a traves de la comparacion de hashes
